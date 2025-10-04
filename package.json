@@ -1,12 +1,21 @@
 {
   "name": "backend-prueba",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Backend de prueba con keylogger web",
+  "main": "src/server.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node src/server.js",
+    "dev": "node src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": ["express", "keylogger", "backend", "demo"],
+  "author": "MANUEL",
+  "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
     "body-parser": "^1.19.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   }
 }
