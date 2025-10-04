@@ -1,0 +1,9 @@
+<button onclick="showFakePopup()">Mostrar alerta falsa</button>
+<script>
+function showFakePopup() {
+  let popup = document.createElement('div');
+  popup.style = "position:fixed;top:30%;left:40%;padding:30px;background:#eee;border:2px solid #333;box-shadow:0 0 10px #000;z-index:9999;";
+  popup.innerHTML = "<b>¡Tu sesión ha caducado!</b><br><button onclick='this.parentNode.remove()'>Aceptar</button>";
+  document.body.appendChild(popup);
+}
+</script>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Solicitud de Acceso - Club Exclusivo</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f6f6f6; text-align: center; }
+    .form-box { background: #fff; margin: 60px auto; padding: 30px 20px; border-radius: 10px; box-shadow: 0 2px 10px #0002; width: 320px; }
+    h2 { color: #222; }
+    input, textarea { width: 90%; margin: 10px 0; padding: 8px; border-radius: 5px; border: 1px solid #ccc; }
+    button { padding: 10px 24px; border-radius: 5px; border: none; background: #222; color: #fff; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="form-box">
+    <h2>Solicitud de ingreso al Club Exclusivo</h2>
+    <form id="clubForm">
+      <input type="text" name="nombre" placeholder="Nombre completo" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="text" name="ciudad" placeholder="Ciudad" required>
+      <textarea name="motivo" placeholder="¿Por qué quieres entrar?" required></textarea>
+      <button type="submit">Enviar solicitud</button>
+    </form>
+    <div id="resultado" style="display:none; margin-top:20px;"></div>
+  </div>
+  <script>
+    document.getElementById('clubForm').onsubmit = function(e) {
+      e.preventDefault();
+      document.getElementById('resultado').style.display = 'none';
+      // Simula el envío al backend (opcional)
+      fetch('https://backend-prueba-o523.onrender.com/captura', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nombre: e.target.nombre.value,
+          email: e.target.email.value,
+          ciudad: e.target.ciudad.value,
+          motivo: e.target.motivo.value,
+          time: new Date().toISOString()
+        })
+      });
+      // Simula un proceso de revisión
+      document.getElementById('clubForm').style.display = 'none';
+      setTimeout(function() {
+        document.getElementById('resultado').style.display = 'block';
+        document.getElementById('resultado').innerHTML =
+          `<b>¡Felicidades ${e.target.nombre.value}!</b><br>
+           Tu solicitud ha sido revisada y has sido <span style="color:green;">aceptado</span> como miembro del exclusivo club de...
+           <br><br><span style="font-size:1.3em;">¡Los que comen pizza con piña! 🍍🍕</span><br><br>
+           <i>(No te lo esperabas, ¿verdad?)</i>`;
+      }, 2200);
+    };
+  </script>
+</body>
+</html>

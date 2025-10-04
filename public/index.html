@@ -2,22 +2,158 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Backend de Prueba</title>
+  <title>Backend de Prueba - Demo Hub</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      min-height: 100vh;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      opacity: 0.8;
+      font-size: 1.2em;
+    }
+    .demos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
+    .demo-card {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .demo-card:hover {
+      transform: translateY(-5px);
+    }
+    .demo-card h3 {
+      margin-bottom: 15px;
+      font-size: 1.3em;
+    }
+    .demo-btn {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1em;
+      margin: 5px;
+      transition: background 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .demo-btn:hover {
+      background: #0056b3;
+    }
+    .demo-btn.secondary {
+      background: #6c757d;
+    }
+    .demo-btn.secondary:hover {
+      background: #545b62;
+    }
+    .backend-info {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 30px;
+      text-align: center;
+    }
+    .status-indicator {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #28a745;
+      margin-right: 8px;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.5; }
+      100% { opacity: 1; }
+    }
+  </style>
 </head>
 <body>
-  <h1>Bienvenido al Backend de Prueba</h1>
-  <p>Selecciona una funcionalidad para probar:</p>
-  
-  <div style="margin: 20px 0;">
-    <button onclick="window.location.href='keylogger.html'" style="margin: 5px; padding: 10px 15px;">
-      🎹 Ir a Keylogger
-    </button>
+  <div class="container">
+    <div class="header">
+      <h1>🛠️ Backend de Prueba</h1>
+      <p class="subtitle">Demo Hub - Funcionalidades de Seguridad Web</p>
+    </div>
     
-    <button onclick="window.open('https://backend-prueba-o523.onrender.com/ver-keylogger', '_blank')" style="margin: 5px; padding: 10px 15px;">
-      📊 Ver Datos Capturados
-    </button>
+    <div class="demos-grid">
+      <div class="demo-card">
+        <h3>🎹 Keylogger</h3>
+        <p>Captura teclas del teclado y las envía al backend</p>
+        <button onclick="window.location.href='keylogger.html'" class="demo-btn">
+          Abrir Demo
+        </button>
+      </div>
+      
+      <div class="demo-card">
+        <h3>📋 Clipboard Capture</h3>
+        <p>Captura datos del portapapeles cuando se pega contenido</p>
+        <button onclick="window.location.href='clipboard-capture.html'" class="demo-btn">
+          Abrir Demo
+        </button>
+      </div>
+      
+      <div class="demo-card">
+        <h3>🎣 Phishing Simulado</h3>
+        <p>Formulario de login falso para capturar credenciales</p>
+        <button onclick="window.location.href='phishing.html'" class="demo-btn">
+          Abrir Demo
+        </button>
+      </div>
+      
+      <div class="demo-card">
+        <h3>📝 Form Manipulation</h3>
+        <p>Captura datos de formularios web</p>
+        <button onclick="window.location.href='form-manipulation.html'" class="demo-btn">
+          Abrir Demo
+        </button>
+      </div>
+    </div>
+    
+    <div class="backend-info">
+      <h3>📊 Panel de Control</h3>
+      <p><span class="status-indicator"></span>Backend activo en Render</p>
+      <button onclick="window.open('https://backend-prueba-o523.onrender.com/ver-keylogger', '_blank')" class="demo-btn">
+        📊 Ver Datos Capturados
+      </button>
+      <button onclick="window.open('https://backend-prueba-o523.onrender.com/health', '_blank')" class="demo-btn secondary">
+        🔍 Health Check
+      </button>
+    </div>
+    
+    <div style="text-align: center; margin-top: 30px; opacity: 0.8;">
+      <p><strong>URLs del Proyecto:</strong></p>
+      <p>Frontend: <code>https://papadelta2.netlify.app/</code></p>
+      <p>Backend: <code>https://backend-prueba-o523.onrender.com</code></p>
+    </div>
   </div>
-  
-  <!-- Puedes ir añadiendo más botones para nuevas demos -->
 </body>
 </html>

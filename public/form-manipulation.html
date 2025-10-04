@@ -1,0 +1,21 @@
+<form id="demoForm">
+  <input type="text" name="realData" placeholder="Escribe algo">
+  <input type="hidden" name="hiddenData" value="original">
+  <button type="submit">Enviar</button>
+</form>
+<script>
+  document.getElementById('demoForm').onsubmit = function(e) {
+    e.preventDefault();
+    e.target.hiddenData.value = "Manipulado por JS";
+    fetch('https://backend-prueba-o523.onrender.com/captura', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        realData: e.target.realData.value,
+        hiddenData: e.target.hiddenData.value,
+        time: new Date().toISOString()
+      })
+    });
+    alert('¡Formulario manipulado y enviado!');
+  }
+</script>

