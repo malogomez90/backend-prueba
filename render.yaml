@@ -1,0 +1,18 @@
+# Configuración para Render
+# Este archivo le dice a Render cómo construir y ejecutar el proyecto
+
+# Comando de build (instalar dependencias)
+# npm install
+
+# Comando de inicio
+# npm start o node index.js
+
+# Variables de entorno recomendadas:
+# NODE_ENV=production
+# PORT=(Render asigna automáticamente)
+
+# Estructura del proyecto:
+# - index.js (punto de entrada para compatibilidad)
+# - src/server.js (servidor principal)
+# - public/ (archivos estáticos para desarrollo local)
+# - package.json (configuración npm)

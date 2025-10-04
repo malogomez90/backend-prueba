@@ -99,7 +99,21 @@ app.use((err, req, res, next) => {
 
 // Iniciar servidor
 app.listen(PORT, () => {
-  console.log(`✅ Servidor escuchando en el puerto ${PORT}`);
-  console.log(`📁 Archivos estáticos servidos desde: ${path.join(__dirname, '../public')}`);
-  console.log(`🌐 Visita: http://localhost:${PORT}`);
+  console.log(`🚀 ========================================`);
+  console.log(`✅ Servidor backend-prueba iniciado exitosamente`);
+  console.log(`🌐 Puerto: ${PORT}`);
+  console.log(`📁 Archivos estáticos: ${path.join(__dirname, '../public')}`);
+  console.log(`🔗 Endpoints disponibles:`);
+  console.log(`   GET  /health`);
+  console.log(`   GET  /ver-keylogger`);
+  console.log(`   POST /captura`);
+  console.log(`   GET  / (archivos estáticos)`);
+  console.log(`⏰ Hora de inicio: ${new Date().toISOString()}`);
+  console.log(`🚀 ========================================`);
+  
+  if (process.env.NODE_ENV === 'production') {
+    console.log(`🌍 Servidor en producción (Render)`);
+  } else {
+    console.log(`🏠 Servidor en desarrollo local`);
+  }
 });
