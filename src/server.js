@@ -70,6 +70,22 @@ app.get('/ver-keylogger', async (req, res) => {
   }
 });
 
+// Endpoint de diagnóstico
+app.get('/health', (req, res) => {
+  res.json({ 
+    status: 'OK', 
+    timestamp: new Date().toISOString(),
+    server: 'backend-prueba',
+    version: '1.0.0',
+    endpoints: [
+      'GET /',
+      'GET /health',
+      'GET /ver-keylogger', 
+      'POST /captura'
+    ]
+  });
+});
+
 // Ruta por defecto para el SPA
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'));
