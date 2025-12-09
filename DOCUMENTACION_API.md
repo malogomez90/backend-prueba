@@ -461,6 +461,8 @@ Un middleware es una función que se ejecuta **entre** que se recibe una petici�
 app.use((req, res, next) => {
   // 1. Agregar headers a la respuesta
   res.header('Access-Control-Allow-Origin', '*');
+  // Nota: PUT y DELETE están incluidos para extensibilidad futura, 
+  // pero actualmente el servidor solo implementa GET y POST
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   

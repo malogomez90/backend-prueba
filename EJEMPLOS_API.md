@@ -14,6 +14,20 @@ Este documento contiene ejemplos completos y funcionables de cómo usar las APIs
 
 ---
 
+## 💡 Nota Importante
+
+Los ejemplos en este documento usan URLs hardcodeadas para mayor claridad. En producción, es recomendable usar el objeto `CONFIG` del archivo `config.js` para centralizar la configuración:
+
+```javascript
+// En lugar de:
+fetch('https://backend-prueba-o523.onrender.com/captura', {...})
+
+// Usar:
+fetch(CONFIG.getEndpointUrl(CONFIG.ENDPOINTS.CAPTURA), {...})
+```
+
+---
+
 ## Ejemplo 1: Obtener Información del Servidor
 
 ### Usando JavaScript (Fetch API)
