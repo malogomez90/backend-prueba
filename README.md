@@ -78,17 +78,23 @@ http://localhost:3000
 | `POST` | `/captura` | Capturar datos | Demos frontend |
 | `GET` | `/ver-keylogger` | Ver datos capturados | Visualización |
 
-### 📖 Documentación Completa
+### 📖 Documentación de las APIs
 
-**¿Necesitas entender cómo funcionan las APIs?** 
+**¿Necesitas entender cómo funcionan las APIs?**
 
-👉 Lee la [**Documentación Completa de las APIs**](./DOCUMENTACION_API.md) - Guía detallada en español con:
-- Explicación de la arquitectura del servidor
-- Descripción detallada de cada endpoint con ejemplos
-- Diagramas de flujo de datos
-- Conceptos clave (HTTP, REST, JSON, CORS)
-- Ejemplos prácticos completos
-- Guía de debugging y troubleshooting
+- 🚀 **[Guía Rápida](./GUIA_RAPIDA.md)** - Empieza aquí: referencia rápida con ejemplos mínimos
+- 📚 **[Documentación Completa](./DOCUMENTACION_API.md)** - Guía detallada en español con:
+  - Explicación de la arquitectura del servidor
+  - Descripción detallada de cada endpoint con ejemplos
+  - Diagramas de flujo de datos
+  - Conceptos clave (HTTP, REST, JSON, CORS)
+  - Guía de debugging y troubleshooting
+- 💻 **[Ejemplos Prácticos](./EJEMPLOS_API.md)** - Código funcionable listo para usar:
+  - Ejemplos completos de HTML/JavaScript
+  - Monitor de servidor en tiempo real
+  - Formularios de contacto
+  - Suite de tests automatizada
+  - Comandos cURL para testing
 
 ### Ejemplo de uso de la API:
 ```javascript
