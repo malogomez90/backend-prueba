@@ -39,6 +39,8 @@ app.use((req, res, next) => {
   // Permite peticiones desde cualquier origen ('*')
   res.header('Access-Control-Allow-Origin', '*');
   // Métodos HTTP permitidos
+  // Nota: PUT y DELETE están incluidos para extensibilidad futura,
+  // pero actualmente el servidor solo implementa GET y POST
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
   // Headers que el cliente puede enviar
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');

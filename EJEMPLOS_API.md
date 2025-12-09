@@ -775,7 +775,9 @@ curl -X POST https://backend-prueba-o523.onrender.com/captura \
 
 # Test 5: GET /ver-keylogger - Ver datos (en navegador)
 # Este endpoint devuelve HTML, mejor abrirlo en navegador
-open https://backend-prueba-o523.onrender.com/ver-keylogger
+# macOS: open, Windows: start, Linux: xdg-open
+# O simplemente copia la URL en tu navegador
+# https://backend-prueba-o523.onrender.com/ver-keylogger
 
 # Test 6: Ruta inexistente (404)
 curl -X GET https://backend-prueba-o523.onrender.com/ruta-inexistente
