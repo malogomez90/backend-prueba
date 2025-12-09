@@ -78,6 +78,18 @@ http://localhost:3000
 | `POST` | `/captura` | Capturar datos | Demos frontend |
 | `GET` | `/ver-keylogger` | Ver datos capturados | Visualización |
 
+### 📖 Documentación Completa
+
+**¿Necesitas entender cómo funcionan las APIs?** 
+
+👉 Lee la [**Documentación Completa de las APIs**](./DOCUMENTACION_API.md) - Guía detallada en español con:
+- Explicación de la arquitectura del servidor
+- Descripción detallada de cada endpoint con ejemplos
+- Diagramas de flujo de datos
+- Conceptos clave (HTTP, REST, JSON, CORS)
+- Ejemplos prácticos completos
+- Guía de debugging y troubleshooting
+
 ### Ejemplo de uso de la API:
 ```javascript
 // Enviar datos al backend
